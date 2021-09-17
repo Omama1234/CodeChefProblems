@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int s;
+	cin >> s;
+	while(s--)
+	{
+	    int n;
+	    cin >> n;
+	    int arr[n];
+	    int flag=1;
+	    for(int i=0 ; i<n; i++){
+	        cin >> arr[i];
+	    }
+	    if(n%2==0){
+	        cout << "no" << endl;
+	        continue;
+	    }
+	    if(arr[0]!=1 || arr[n-1]!=1){
+	        cout << "no" << endl;
+	        continue;
+	    }
+	    
+	    for(int i=1 ; i<n-1 ; i++){
+	        if(i<(n+1)/2){
+	            if(arr[i]-arr[i-1]!=1){
+	                flag=0;
+	                break;
+	            }
+	        }
+	        else{
+	            if(arr[i]-arr[i+1]!=1){
+	                flag=0;
+	                break;
+	            }
+	        }
+	    }
+	    if(flag==1){
+	        cout << "yes" << endl;
+	    }
+	    else{
+	        cout << "no" << endl;
+	    }
+	}
+	return 0;
+}
